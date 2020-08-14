@@ -9,9 +9,9 @@ namespace BasicGeneralStoreDesktopApplication.Model
     public class Item
     {
         public String Name { get; set; }
-        public decimal BuyingPrice { get; set; }
-        public decimal SellingPrice { get; set; }
-        public decimal Quantity { get; set; }
+        public double BuyingPrice { get; set; }
+        public double SellingPrice { get; set; }
+        public double Quantity { get; set; }
         public String Unit { get; set; }
         public DateTime UpdatedOn { get; set; }
 
