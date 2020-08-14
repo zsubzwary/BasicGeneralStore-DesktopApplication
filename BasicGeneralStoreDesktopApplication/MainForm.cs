@@ -53,7 +53,16 @@ namespace BasicGeneralStoreDesktopApplication
                 String name = dgvResults.Rows[e.RowIndex].Cells[1].Value.ToString();
                 if (MessageBox.Show("Are you sure you want to delete “"+ name +"” from the record?", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                 {
-                    
+                    try
+                    {
+                        int ID = Convert.ToInt32(dgvResults.Rows[e.RowIndex].Cells[0].Value);
+                        SqliteDataAccess.DeleteItem(ID);
+                        RefreshDataIn_DataGridView();
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show("Unable to delete ITEM from database.\n\n\nError Message:\n" + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
                 }
             }
             else if (dgvResults.Columns[e.ColumnIndex].Name == "Edit")

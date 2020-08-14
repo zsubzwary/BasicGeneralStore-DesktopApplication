@@ -37,5 +37,12 @@ namespace BasicGeneralStoreDesktopApplication
             }
         }
 
+        public static void DeleteItem(int id)
+        {
+            using (IDbConnection dbConnection = new SQLiteConnection(getConnectionString()))
+            {
+                dbConnection.Execute("DELETE FROM Item WHERE [ID] = @ID;", new Item() { ID = id });
+            }
+        }
     }
 }
