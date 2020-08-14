@@ -57,8 +57,7 @@ namespace BasicGeneralStoreDesktopApplication
         {
             using (IDbConnection dbConnection = new SQLiteConnection(getConnectionString()))
             {
-                int r = dbConnection.Execute("UPDATE Item SET Name = @Name, BuyingPrice=@BuyingPrice, SellingPrice =@SellingPrice, Quantity=@Quantity, Unit=@Unit, UpdatedOn = datetime(CURRENT_TIMESTAMP, 'localtime') WHERE ID = @ID;", item);
-                System.Diagnostics.Debug.Print(r.ToString());
+                dbConnection.Execute("UPDATE Item SET Name = @Name, BuyingPrice=@BuyingPrice, SellingPrice =@SellingPrice, Quantity=@Quantity, Unit=@Unit, UpdatedOn = datetime(CURRENT_TIMESTAMP, 'localtime') WHERE ID = @ID;", item);
             }
         }
     }
