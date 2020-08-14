@@ -15,6 +15,8 @@ namespace BasicGeneralStoreDesktopApplication
     {
         public static String getConnectionString(String name = "Default")
         {
+            //TODO: Fix the connectionString issue
+            return @"Data Source=.\DefaultDatabase.db3;Version=3;";
             return ConfigurationManager.ConnectionStrings[name].ConnectionString;
         }
 

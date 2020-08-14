@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using BasicGeneralStoreDesktopApplication.Model;
 
 namespace BasicGeneralStoreDesktopApplication
 {
@@ -43,7 +44,22 @@ namespace BasicGeneralStoreDesktopApplication
 
         private void btnSave_Click(object sender, EventArgs e)
         {
-            
+            Item item = new Item
+            {
+                Name = txtName.Text,
+                BuyingPrice = Convert.ToDouble(nudBuyingPrice.Value),
+                SellingPrice = Convert.ToDouble(nudSellingPrice.Value),
+                Quantity = Convert.ToDouble(nudQuantity.Value),
+                Unit = cmbxUnit.Text,
+            };
+            try
+            {
+                SqliteDataAccess.SaveItem(item);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Unable to save ITEM to database.\n\n\n"+ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
     }
 }

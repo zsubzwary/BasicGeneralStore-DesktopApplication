@@ -8,6 +8,7 @@ namespace BasicGeneralStoreDesktopApplication.Model
 {
     public class Item
     {
+        public int ID { get; set; }
         public String Name { get; set; }
         public double BuyingPrice { get; set; }
         public double SellingPrice { get; set; }
