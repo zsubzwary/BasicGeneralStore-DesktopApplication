@@ -40,5 +40,10 @@ namespace BasicGeneralStoreDesktopApplication
         {
             this.Text = "Add New Item | " + Program.storeName;
         }
+
+        private void btnSave_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

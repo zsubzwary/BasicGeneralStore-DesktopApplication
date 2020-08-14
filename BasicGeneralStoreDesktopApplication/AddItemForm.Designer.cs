@@ -38,7 +38,6 @@
             this.btnGoBack = new System.Windows.Forms.Button();
             this.lblUnit = new System.Windows.Forms.Label();
             this.cmbxUnit = new System.Windows.Forms.ComboBox();
-            this.btnAddNewUnit = new System.Windows.Forms.Button();
             this.nudQuantity = new System.Windows.Forms.NumericUpDown();
             this.nudSellingPrice = new System.Windows.Forms.NumericUpDown();
             this.nudBuyingPrice = new System.Windows.Forms.NumericUpDown();
@@ -72,6 +71,7 @@
             this.btnSave.TabIndex = 7;
             this.btnSave.Text = "Save";
             this.btnSave.UseVisualStyleBackColor = true;
+            this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
             // 
             // label2
             // 
@@ -133,20 +133,14 @@
             // cmbxUnit
             // 
             this.cmbxUnit.FormattingEnabled = true;
+            this.cmbxUnit.Items.AddRange(new object[] {
+            "KG",
+            "Maan",
+            "Bori"});
             this.cmbxUnit.Location = new System.Drawing.Point(238, 204);
             this.cmbxUnit.Name = "cmbxUnit";
-            this.cmbxUnit.Size = new System.Drawing.Size(448, 26);
+            this.cmbxUnit.Size = new System.Drawing.Size(559, 26);
             this.cmbxUnit.TabIndex = 5;
-            // 
-            // btnAddNewUnit
-            // 
-            this.btnAddNewUnit.Location = new System.Drawing.Point(692, 202);
-            this.btnAddNewUnit.Name = "btnAddNewUnit";
-            this.btnAddNewUnit.Size = new System.Drawing.Size(105, 28);
-            this.btnAddNewUnit.TabIndex = 6;
-            this.btnAddNewUnit.Text = "Add New Unit";
-            this.btnAddNewUnit.UseVisualStyleBackColor = true;
-            this.btnAddNewUnit.Click += new System.EventHandler(this.btnAddNewUnit_Click);
             // 
             // nudQuantity
             // 
@@ -203,7 +197,6 @@
             this.Controls.Add(this.nudBuyingPrice);
             this.Controls.Add(this.nudSellingPrice);
             this.Controls.Add(this.nudQuantity);
-            this.Controls.Add(this.btnAddNewUnit);
             this.Controls.Add(this.cmbxUnit);
             this.Controls.Add(this.lblUnit);
             this.Controls.Add(this.btnGoBack);
@@ -240,7 +233,6 @@
         private System.Windows.Forms.Button btnGoBack;
         private System.Windows.Forms.Label lblUnit;
         private System.Windows.Forms.ComboBox cmbxUnit;
-        private System.Windows.Forms.Button btnAddNewUnit;
         private System.Windows.Forms.NumericUpDown nudQuantity;
         private System.Windows.Forms.NumericUpDown nudSellingPrice;
         private System.Windows.Forms.NumericUpDown nudBuyingPrice;
