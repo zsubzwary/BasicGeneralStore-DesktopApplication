@@ -67,6 +67,7 @@
             this.txtSearchBox.Name = "txtSearchBox";
             this.txtSearchBox.Size = new System.Drawing.Size(929, 24);
             this.txtSearchBox.TabIndex = 2;
+            this.txtSearchBox.TextChanged += new System.EventHandler(this.txtSearchBox_TextChanged);
             // 
             // dgvResults
             // 

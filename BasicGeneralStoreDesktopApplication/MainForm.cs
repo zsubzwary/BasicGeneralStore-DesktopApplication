@@ -74,5 +74,18 @@ namespace BasicGeneralStoreDesktopApplication
                 editItemForm.Close();
             }
         }
+
+        private void txtSearchBox_TextChanged(object sender, EventArgs e)
+        {
+            if (String.IsNullOrWhiteSpace(txtSearchBox.Text))
+            {
+                RefreshDataIn_DataGridView();
+            }
+            else
+            {
+                List<Item> items = SqliteDataAccess.getItemsByName(txtSearchBox.Text);
+                dgvResults.DataSource = items;
+            }
+        }
     }
 }

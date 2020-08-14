@@ -60,5 +60,15 @@ namespace BasicGeneralStoreDesktopApplication
                 dbConnection.Execute("UPDATE Item SET Name = @Name, BuyingPrice=@BuyingPrice, SellingPrice =@SellingPrice, Quantity=@Quantity, Unit=@Unit, UpdatedOn = datetime(CURRENT_TIMESTAMP, 'localtime') WHERE ID = @ID;", item);
             }
         }
+
+        public static List<Item> getItemsByName(String text)
+        {
+            using (IDbConnection dbConnection = new SQLiteConnection(getConnectionString()))
+            {
+                //TODO: Fix this, this could cause SQL Injection!
+                String query = "SELECT * FROM Item WHERE Name LIKE '%" + text + "%';";
+                return dbConnection.Query<Item>(query).ToList();
+            }
+        }
     }
 }
