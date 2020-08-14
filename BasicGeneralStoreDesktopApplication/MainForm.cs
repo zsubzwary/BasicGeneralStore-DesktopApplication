@@ -45,5 +45,22 @@ namespace BasicGeneralStoreDesktopApplication
             List<Item> items = SqliteDataAccess.getAllItems();
             dgvResults.DataSource = items;
         }
+
+        private void dgvResults_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (dgvResults.Columns[e.ColumnIndex].Name == "Delete")
+            {
+                String name = dgvResults.Rows[e.RowIndex].Cells[1].Value.ToString();
+                if (MessageBox.Show("Are you sure you want to delete “"+ name +"” from the record?", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                {
+                    
+                }
+            }
+            else if (dgvResults.Columns[e.ColumnIndex].Name == "Edit")
+            {
+                int ID = Convert.ToInt32(dgvResults.Rows[e.RowIndex].Cells[0].Value);
+                
+            }
+        }
     }
 }
