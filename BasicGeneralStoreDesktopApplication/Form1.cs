@@ -10,11 +10,23 @@ using System.Windows.Forms;
 
 namespace BasicGeneralStoreDesktopApplication
 {
-    public partial class Form1 : Form
+    public partial class MainForm : Form
     {
-        public Form1()
+        public MainForm()
         {
             InitializeComponent();
+        }
+
+        private void addNewItemToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            //Code for Add button will go here
+
+        }
+
+        private void quitToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            //Code for closing the application
+            Application.Exit();
         }
     }
 }
