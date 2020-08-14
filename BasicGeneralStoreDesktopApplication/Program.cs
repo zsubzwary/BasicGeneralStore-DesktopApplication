@@ -11,6 +11,8 @@ namespace BasicGeneralStoreDesktopApplication
         /// <summary>
         /// The main entry point for the application.
         /// </summary>
+        /// 
+        public static String storeName = "ABC General Store";
         [STAThread]
         static void Main()
         {

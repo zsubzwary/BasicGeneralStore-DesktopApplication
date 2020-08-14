@@ -19,14 +19,21 @@ namespace BasicGeneralStoreDesktopApplication
 
         private void addNewItemToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            //Code for Add button will go here
-
+            //Code for opening Add form will go here
+            AddItemForm addItemForm = new AddItemForm();
+            addItemForm.ShowDialog();
         }
 
         private void quitToolStripMenuItem_Click(object sender, EventArgs e)
         {
             //Code for closing the application
             Application.Exit();
+        }
+
+        private void MainForm_Load(object sender, EventArgs e)
+        {
+            lblStoreName.Text = Program.storeName;
+            this.Text = Program.storeName;
         }
     }
 }
