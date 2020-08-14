@@ -17,6 +17,11 @@ namespace BasicGeneralStoreDesktopApplication
             InitializeComponent();
         }
 
+        private void AddItemForm_Load(object sender, EventArgs e)
+        {
+            this.Text = "Add New Item | " + Program.storeName;
+        }
+
         private void btnReset_Click(object sender, EventArgs e)
         {
             nudBuyingPrice.Value = 0;
@@ -36,14 +41,9 @@ namespace BasicGeneralStoreDesktopApplication
 
         }
 
-        private void AddItemForm_Load(object sender, EventArgs e)
-        {
-            this.Text = "Add New Item | " + Program.storeName;
-        }
-
         private void btnSave_Click(object sender, EventArgs e)
         {
-
+            
         }
     }
 }
