@@ -65,9 +65,7 @@ namespace BasicGeneralStoreDesktopApplication
         {
             using (IDbConnection dbConnection = new SQLiteConnection(getConnectionString()))
             {
-                //TODO: Fix this, this could cause SQL Injection!
-                String query = "SELECT * FROM Item WHERE Name LIKE '%" + text + "%';";
-                return dbConnection.Query<Item>(query).ToList();
+                return dbConnection.Query<Item>("SELECT * FROM Item WHERE Name LIKE @Name ;", new { Name = '%'+text+'%' }).ToList();
             }
         }
     }
