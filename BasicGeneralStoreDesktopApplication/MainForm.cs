@@ -56,7 +56,7 @@ namespace BasicGeneralStoreDesktopApplication
                     try
                     {
                         int ID = Convert.ToInt32(dgvResults.Rows[e.RowIndex].Cells[0].Value);
-                        SqliteDataAccess.DeleteItem(ID);
+                        SqliteDataAccess.DeleteItemByID(ID);
                         RefreshDataIn_DataGridView();
                     }
                     catch (Exception ex)
@@ -68,7 +68,10 @@ namespace BasicGeneralStoreDesktopApplication
             else if (dgvResults.Columns[e.ColumnIndex].Name == "Edit")
             {
                 int ID = Convert.ToInt32(dgvResults.Rows[e.RowIndex].Cells[0].Value);
-                
+                EditItemForm editItemForm = new EditItemForm(ID);
+                editItemForm.ShowDialog();
+                RefreshDataIn_DataGridView();
+                editItemForm.Close();
             }
         }
     }

@@ -29,6 +29,14 @@ namespace BasicGeneralStoreDesktopApplication
             }
         }
 
+        public static Item getItemByID(int id)
+        {
+            using (IDbConnection dbConnection = new SQLiteConnection(getConnectionString()))
+            {
+                return dbConnection.Query<Item>("SELECT * FROM Item WHERE ID = @ID", new { ID = id}).Single();
+            }
+        }
+
         public static void SaveItem(Item item)
         {
             using (IDbConnection dbConnection = new SQLiteConnection(getConnectionString()))
@@ -37,11 +45,20 @@ namespace BasicGeneralStoreDesktopApplication
             }
         }
 
-        public static void DeleteItem(int id)
+        public static void DeleteItemByID(int id)
         {
             using (IDbConnection dbConnection = new SQLiteConnection(getConnectionString()))
             {
                 dbConnection.Execute("DELETE FROM Item WHERE [ID] = @ID;", new Item() { ID = id });
+            }
+        }
+
+        public static void UpdateItemByID(Item item)
+        {
+            using (IDbConnection dbConnection = new SQLiteConnection(getConnectionString()))
+            {
+                int r = dbConnection.Execute("UPDATE Item SET Name = @Name, BuyingPrice=@BuyingPrice, SellingPrice =@SellingPrice, Quantity=@Quantity, Unit=@Unit, UpdatedOn = datetime(CURRENT_TIMESTAMP, 'localtime') WHERE ID = @ID;", item);
+                System.Diagnostics.Debug.Print(r.ToString());
             }
         }
     }
