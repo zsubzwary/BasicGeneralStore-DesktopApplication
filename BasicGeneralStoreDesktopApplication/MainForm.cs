@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using BasicGeneralStoreDesktopApplication.Model;
 
 namespace BasicGeneralStoreDesktopApplication
 {
@@ -15,6 +16,8 @@ namespace BasicGeneralStoreDesktopApplication
         public MainForm()
         {
             InitializeComponent();
+            lblStoreName.Text = Program.storeName;
+            this.Text = Program.storeName;
         }
 
         private void addNewItemToolStripMenuItem_Click(object sender, EventArgs e)
@@ -22,6 +25,8 @@ namespace BasicGeneralStoreDesktopApplication
             //Code for opening Add form will go here
             AddItemForm addItemForm = new AddItemForm();
             addItemForm.ShowDialog();
+            addItemForm.Close();
+            RefreshDataIn_DataGridView();
         }
 
         private void quitToolStripMenuItem_Click(object sender, EventArgs e)
@@ -32,8 +37,13 @@ namespace BasicGeneralStoreDesktopApplication
 
         private void MainForm_Load(object sender, EventArgs e)
         {
-            lblStoreName.Text = Program.storeName;
-            this.Text = Program.storeName;
+            RefreshDataIn_DataGridView();
+        }
+
+        private void RefreshDataIn_DataGridView()
+        {
+            List<Item> items = SqliteDataAccess.getAllItems();
+            dgvResults.DataSource = items;
         }
     }
 }

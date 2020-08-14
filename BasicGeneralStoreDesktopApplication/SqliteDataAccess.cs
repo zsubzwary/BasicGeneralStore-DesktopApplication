@@ -22,7 +22,11 @@ namespace BasicGeneralStoreDesktopApplication
 
         public static List<Item> getAllItems()
         {
-            return null;
+            using (IDbConnection dbConnection = new SQLiteConnection(getConnectionString()))
+            {
+                var output = dbConnection.Query<Item>("SELECT * FROM Item;", new DynamicParameters());
+                return output.ToList();
+            }
         }
 
         public static void SaveItem(Item item)
