@@ -37,13 +37,14 @@ namespace BasicGeneralStoreDesktopApplication
             // doing nothing in here, I have just set the dialogResult to cancle and it goes back automatically because it is opened as a dialog result form the MainForm.
         }
 
-        private void btnAddNewUnit_Click(object sender, EventArgs e)
-        {
-
-        }
-
         private void btnSave_Click(object sender, EventArgs e)
         {
+            if (String.IsNullOrWhiteSpace(txtName.Text) || String.IsNullOrWhiteSpace(cmbxUnit.Text))
+            {
+                MessageBox.Show("Fill all the fields", "Error", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
+                return;
+            }
+
             Item item = new Item
             {
                 Name = txtName.Text,
@@ -55,10 +56,11 @@ namespace BasicGeneralStoreDesktopApplication
             try
             {
                 SqliteDataAccess.SaveItem(item);
+                MessageBox.Show("Saved Successfully", "Saved", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Unable to save ITEM to database.\n\n\n"+ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Unable to save ITEM to database.\n\n\nError Message:\n"+ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
     }

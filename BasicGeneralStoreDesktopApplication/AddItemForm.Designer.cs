@@ -153,6 +153,11 @@
             this.nudQuantity.Name = "nudQuantity";
             this.nudQuantity.Size = new System.Drawing.Size(559, 24);
             this.nudQuantity.TabIndex = 4;
+            this.nudQuantity.Value = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
             // 
             // nudSellingPrice
             // 
@@ -165,6 +170,7 @@
             this.nudSellingPrice.Name = "nudSellingPrice";
             this.nudSellingPrice.Size = new System.Drawing.Size(559, 24);
             this.nudSellingPrice.TabIndex = 3;
+            this.nudSellingPrice.ThousandsSeparator = true;
             // 
             // nudBuyingPrice
             // 
@@ -177,6 +183,7 @@
             this.nudBuyingPrice.Name = "nudBuyingPrice";
             this.nudBuyingPrice.Size = new System.Drawing.Size(559, 24);
             this.nudBuyingPrice.TabIndex = 2;
+            this.nudBuyingPrice.ThousandsSeparator = true;
             // 
             // label5
             // 
@@ -208,7 +215,7 @@
             this.Controls.Add(this.txtName);
             this.Controls.Add(this.label1);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "AddItemForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "AddItemForm";
