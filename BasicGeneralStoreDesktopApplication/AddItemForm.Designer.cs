@@ -133,13 +133,10 @@
             // cmbxUnit
             // 
             this.cmbxUnit.FormattingEnabled = true;
-            this.cmbxUnit.Items.AddRange(new object[] {
-            "KG",
-            "Maan",
-            "Bori"});
             this.cmbxUnit.Location = new System.Drawing.Point(238, 204);
             this.cmbxUnit.Name = "cmbxUnit";
             this.cmbxUnit.Size = new System.Drawing.Size(559, 26);
+            this.cmbxUnit.Sorted = true;
             this.cmbxUnit.TabIndex = 5;
             // 
             // nudQuantity

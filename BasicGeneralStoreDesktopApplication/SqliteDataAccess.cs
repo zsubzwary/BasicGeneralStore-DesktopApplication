@@ -20,6 +20,14 @@ namespace BasicGeneralStoreDesktopApplication
             return ConfigurationManager.ConnectionStrings[name].ConnectionString;
         }
 
+        public static List<String> getAllUniqueUnitsName()
+        {
+            using (IDbConnection dbConnection = new SQLiteConnection(getConnectionString()))
+            {
+                return dbConnection.Query<String>("SELECT Unit FROM Item GROUP BY Unit;").ToList();
+            }
+        }
+
         public static List<Item> getAllItems()
         {
             using (IDbConnection dbConnection = new SQLiteConnection(getConnectionString()))

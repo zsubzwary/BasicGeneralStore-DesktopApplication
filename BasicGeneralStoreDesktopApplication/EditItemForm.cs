@@ -23,6 +23,9 @@ namespace BasicGeneralStoreDesktopApplication
 
         private void EditItemForm_Load(object sender, EventArgs e)
         {
+            List<String> unitList = SqliteDataAccess.getAllUniqueUnitsName();
+            cmbxUnit.Items.AddRange(unitList.ToArray<object>());
+
             try
             {
                 Item toBeEdited = SqliteDataAccess.getItemByID(ID);

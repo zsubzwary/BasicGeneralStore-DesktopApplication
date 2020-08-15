@@ -104,13 +104,10 @@
             // cmbxUnit
             // 
             this.cmbxUnit.FormattingEnabled = true;
-            this.cmbxUnit.Items.AddRange(new object[] {
-            "KG",
-            "Maan",
-            "Bori"});
             this.cmbxUnit.Location = new System.Drawing.Point(271, 236);
             this.cmbxUnit.Name = "cmbxUnit";
             this.cmbxUnit.Size = new System.Drawing.Size(559, 26);
+            this.cmbxUnit.Sorted = true;
             this.cmbxUnit.TabIndex = 18;
             // 
             // lblUnit

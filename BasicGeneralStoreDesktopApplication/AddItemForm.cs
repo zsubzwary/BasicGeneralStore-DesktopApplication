@@ -21,6 +21,8 @@ namespace BasicGeneralStoreDesktopApplication
         private void AddItemForm_Load(object sender, EventArgs e)
         {
             this.Text = "Add New Item | " + Program.storeName;
+            List<String> unitList = SqliteDataAccess.getAllUniqueUnitsName();
+            cmbxUnit.Items.AddRange(unitList.ToArray<object>());
         }
 
         private void btnReset_Click(object sender, EventArgs e)
