@@ -24,7 +24,7 @@ namespace BasicGeneralStoreDesktopApplication
         {
             using (IDbConnection dbConnection = new SQLiteConnection(getConnectionString()))
             {
-                return dbConnection.Query<String>("SELECT Unit FROM Item GROUP BY Unit;").ToList();
+                return dbConnection.Query<String>("SELECT DISTINCT Unit FROM Item;").ToList();
             }
         }
 
