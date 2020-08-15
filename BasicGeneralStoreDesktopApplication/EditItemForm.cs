@@ -17,7 +17,7 @@ namespace BasicGeneralStoreDesktopApplication
         public EditItemForm(int id)
         {
             InitializeComponent();
-            this.Text = "Edit Item |" + Program.storeName;
+            this.Text = "Edit Item | " + Program.storeName;
             this.ID = id;
         }
 
