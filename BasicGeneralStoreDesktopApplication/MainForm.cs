@@ -48,30 +48,33 @@ namespace BasicGeneralStoreDesktopApplication
 
         private void dgvResults_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            if (dgvResults.Columns[e.ColumnIndex].Name == "Delete")
+            if (e != null && e.RowIndex >= 0)
             {
-                String name = dgvResults.Rows[e.RowIndex].Cells[1].Value.ToString();
-                if (MessageBox.Show("Are you sure you want to delete “"+ name +"” from the record?", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                if (dgvResults.Columns[e.ColumnIndex].Name == "Delete")
                 {
-                    try
+                    String name = dgvResults.Rows[e.RowIndex].Cells[1].Value.ToString();
+                    if (MessageBox.Show("Are you sure you want to delete “" + name + "” from the record?", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                     {
-                        int ID = Convert.ToInt32(dgvResults.Rows[e.RowIndex].Cells[0].Value);
-                        SqliteDataAccess.DeleteItemByID(ID);
-                        RefreshDataIn_DataGridView();
-                    }
-                    catch (Exception ex)
-                    {
-                        MessageBox.Show("Unable to delete ITEM from database.\n\n\nError Message:\n" + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        try
+                        {
+                            int ID = Convert.ToInt32(dgvResults.Rows[e.RowIndex].Cells[0].Value);
+                            SqliteDataAccess.DeleteItemByID(ID);
+                            RefreshDataIn_DataGridView();
+                        }
+                        catch (Exception ex)
+                        {
+                            MessageBox.Show("Unable to delete ITEM from database.\n\n\nError Message:\n" + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        }
                     }
                 }
-            }
-            else if (dgvResults.Columns[e.ColumnIndex].Name == "Edit")
-            {
-                int ID = Convert.ToInt32(dgvResults.Rows[e.RowIndex].Cells[0].Value);
-                EditItemForm editItemForm = new EditItemForm(ID);
-                editItemForm.ShowDialog();
-                RefreshDataIn_DataGridView();
-                editItemForm.Close();
+                else if (dgvResults.Columns[e.ColumnIndex].Name == "Edit")
+                {
+                    int ID = Convert.ToInt32(dgvResults.Rows[e.RowIndex].Cells[0].Value);
+                    EditItemForm editItemForm = new EditItemForm(ID);
+                    editItemForm.ShowDialog();
+                    RefreshDataIn_DataGridView();
+                    editItemForm.Close();
+                } 
             }
         }
 
